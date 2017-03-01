@@ -1,0 +1,44 @@
+{
+  "name": "koa_bare_minimum",
+  "version": "1.0.0",
+  "description": "A koa@next bare minimum boilerplate",
+  "main": "index.js",
+  "scripts": {
+    "build:start": "nodemon build",
+    "build:watch": "babel -w src -d build",
+    "test:start": "mocha --compilers js:babel-core/register --require 'babel-polyfill' --require 'tests/pre_test.js'",
+    "test:watch": "npm run test:start -- --watch"
+  },
+  "keywords": [
+    "bookshelf",
+    "koa2",
+    "api"
+  ],
+  "author": "ArchNoob",
+  "license": "MIT",
+  "dependencies": {
+    "babel-polyfill": "^6.23.0",
+    "bluebird": "^3.4.7",
+    "bookshelf": "^0.10.3",
+    "dotenv": "^4.0.0",
+    "knex": "^0.12.7",
+    "koa": "^2.0.0-alpha.8",
+    "koa-better-body": "^3.0.2",
+    "koa-convert": "^1.2.0",
+    "koa-rest-router": "^1.0.1",
+    "lodash": "^4.17.4",
+    "nodemon": "^1.11.0",
+    "pg": "^6.1.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.23.0",
+    "babel-core": "^6.23.1",
+    "babel-preset-latest": "^6.22.0",
+    "babel-preset-stage-0": "^6.22.0",
+    "babel-register": "^6.23.0",
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0",
+    "sqlite3": "^3.1.8",
+    "supertest": "^3.0.0"
+  }
+}
