@@ -6,9 +6,19 @@ import router from 'koa-rest-router'
 
 const app = new koa()
 
+const api = router().loadMethods()
+
+api.get('/', async (ctx, next) => {
+    
+    ctx.body = await 'Hello world!'
+    await next()
+})
+
 app.use(convert(body({
     multipart: true,
     fields: 'body'
 })))
+
+app.use(api.middleware())
 
 export default app
