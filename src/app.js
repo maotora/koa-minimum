@@ -10,7 +10,7 @@ const api = router().loadMethods()
 
 api.get('/', async (ctx, next) => {
     
-    ctx.body = await 'Hello world!'
+    ctx.body = await 'Hello World!'
     await next()
 })
 

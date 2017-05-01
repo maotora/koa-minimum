@@ -6,7 +6,7 @@
   "scripts": {
     "build:start": "nodemon build",
     "build:watch": "babel -w src -d build",
-    "test:start": "mocha --compilers js:babel-core/register --require 'babel-polyfill' --require 'tests/pre_test.js'",
+    "test:start": "mocha --compilers js:babel-core/register --require babel-polyfill --require tests/pre_test.js --recursive ./tests",
     "test:watch": "npm run test:start -- --watch"
   },
   "keywords": [
