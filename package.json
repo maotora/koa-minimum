@@ -4,7 +4,7 @@
   "description": "A koa@next bare minimum boilerplate",
   "main": "index.js",
   "scripts": {
-    "build:start": "nodemon build",
+    "build:start": "nodemon build/app.js",
     "build:watch": "babel -w src -d build",
     "test:start": "mocha --compilers js:babel-core/register --require babel-polyfill --require tests/pre_test.js --recursive ./tests",
     "test:watch": "npm run test:start -- --watch"
@@ -46,6 +46,7 @@
     "gulp-connect": "^5.0.0",
     "gulp-eslint": "^4.0.0",
     "gulp-mocha": "^4.3.1",
+    "gulp-nodemon": "^2.2.1",
     "gulp-plumber": "^1.1.0",
     "gulp-uglify": "^3.0.0",
     "gulp-util": "^3.0.8",

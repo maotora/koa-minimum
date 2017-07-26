@@ -8,6 +8,7 @@ import concat from 'gulp-concat'
 import lint from 'gulp-eslint'
 import connect from 'gulp-connect'
 import gutil from 'gulp-util'
+import nodemon from 'gulp-nodemon'
 import mocha from 'gulp-mocha'
 
 const paths = {
@@ -47,11 +48,12 @@ export const scripts = () => {
         .pipe(gulp.dest(paths.app.dest))
 }
 
-export const server = () => {
-    logging('Connecting to server ...')
+export const testServer = () => {
+    logging('Connecting Testing Server')
     return connect.server({
         root: paths.app.build,
-        livereload: true
+        livereload: true,
+        port: 8080
     })
 }
 
@@ -66,6 +68,15 @@ export function testing() {
         .pipe(connect.reload())
 }
 
+export function distServer() {
+    logging('Connecting Developement Server')
+    return nodemon({
+        script: paths.app.build,
+        ext: 'js',
+        env: {'NODE_ENV': 'development'}
+    })
+}
+
 //- export const build = () => gulp.series(clean, scripts, testing)()
 
 export const watch = () => {
@@ -73,4 +84,4 @@ export const watch = () => {
     gulp.watch(paths.tests.source, gulp.series(clean, scripts, testing))
 }
 
-export default () => gulp.series(clean, scripts, testing, gulp.parallel(server, watch))()
+export default () => gulp.series(clean, scripts, testing, gulp.parallel(testServer, distServer, watch))()
