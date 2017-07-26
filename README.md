@@ -7,6 +7,30 @@ koa@next development.
 
     npm install
 
+#### Use gulp.
+
+To run all tasks just use command
+
+    gulp
+
+Otherwise check on the `gulpfile.babel.js` to see which tasks you can run.
+
+**NB** Gulp tasks are defined as exported functions.
+
+#### NB++
+
+I use `gulp-connect` for testing server & livereloading the whole gulp
+project.
+
+I use `gulp-nodemon` for server "serving", to a client who will type
+
+    curl http://localhost:1337/
+
+I will figure a way to remove one later, feel free to teach me how or
+better a PR!
+
+**The npm scripts still work tho**
+
 #### Babelify
 
     npm run build:watch
