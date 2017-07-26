@@ -1,3 +1,4 @@
+import 'babel-polyfill'
 require('dotenv').config()
 import koa from 'koa'
 import convert from 'koa-convert'

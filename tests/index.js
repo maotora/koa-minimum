@@ -5,10 +5,16 @@ const inst = app.listen()
 
 describe('Main App', () => {
     
-    it('Has Roots', async() => {
+    it('Gets Root', async() => {
         
         await request(inst)
             .get('/')
             .expect(/Hello World!/)
+    })
+
+    it('Gives 404', async() => {
+        await request(inst)
+            .get('/blah')
+            .expect(404)
     })
 })
