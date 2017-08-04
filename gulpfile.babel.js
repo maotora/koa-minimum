@@ -10,6 +10,7 @@ import connect from 'gulp-connect'
 import gutil from 'gulp-util'
 import nodemon from 'gulp-nodemon'
 import mocha from 'gulp-mocha'
+import stylus from 'gulp-stylus'
 
 const paths = {
     app: {
@@ -22,13 +23,23 @@ const paths = {
         pre_tests: [
             'tests/pre_test.js'
         ]
-    }
+    },
+    styles: {
+        source: 'styles/**/*.styl',
+        dest: './build/css'
+    },
 }
 
 export const clean = () => del([paths.app.dest])
 
 function logging(text) {
     gutil.log(gutil.colors.black(gutil.colors.bgBlue(text)))
+}
+
+export const styles = () => {
+    return gulp.src(paths.styles.source)
+        .pipe(stylus())
+        .pipe(gulp.dest(paths.styles.dest))
 }
 
 export const scripts = () => {
